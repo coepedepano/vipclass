@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "vipclass-5fae5": {
+      "hosting": {
+        "vipclass": [
+          "vipclass-5fae5"
+        ]
+      }
+    }
+  }
+}

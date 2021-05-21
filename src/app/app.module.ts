@@ -12,10 +12,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { DefaultComponent } from './pages/default/default.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,9 +27,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

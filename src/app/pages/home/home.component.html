@@ -2,11 +2,15 @@
     <div class="inner-container">
         <header class=" bg-black text-white">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start navbar">
-                <img class="logo" src="assets/Default/Logo.svg"/>
+                <a href="/" class="logo">
+                    <img src="assets/Default/Logo.svg" />
+                </a>
                 <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></div>
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2"><b>Create</b></button>
-                    <button type="button" class="btn btn-warning"><b>Sign-up</b></button>
+                    <button type="button" class="btn btn-primary btn-rounded mx-auto"
+                        (click)="create()"><b>Create</b></button>
+                    <button type="button" class="btn btn-warning btn-rounded ml-20" (click)="connect()"><b>Connect
+                            Wallet</b></button>
                 </div>
             </div>
         </header>

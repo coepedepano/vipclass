@@ -4,6 +4,7 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
 import { DefaultComponent } from './pages/default/default.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ConnectComponent } from './pages/connect/connect.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
     path: '', component: HomeComponent, children: [
       { path: '', component: DefaultComponent },
       { path: 'add-product', component: AddProductComponent },
+      { path: 'connect', component: ConnectComponent },
     ],
   },
 ];

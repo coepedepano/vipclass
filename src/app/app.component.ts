@@ -1,18 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  templateUrl: './app.component.html'
 })
-
-export class AppComponent implements OnInit {
-  constructor(
-    private router: Router,
-  ) {
-  }
-
-  ngOnInit(): void {
-    // this.router.navigateByUrl('/');
-  }
+export class AppComponent {
+  title = 'front-end';
 }

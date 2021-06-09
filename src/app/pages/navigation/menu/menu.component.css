@@ -1,0 +1,20 @@
+.navBar {
+   
+    background: linear-gradient(120deg,#2E1A2C,#2E1A2C);
+    color: #FFDE59;
+} 
+
+/* .navBar {
+    background: linear-gradient(120deg,#2E1A2C,#2E1A2C);
+    padding-top: .7125rem;
+    padding-bottom: .7125rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: -17px;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%);
+    color: #FFDE59;
+  }  */

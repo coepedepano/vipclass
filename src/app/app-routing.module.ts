@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/navigation/home/home.component';
 import { NotFoundComponent } from './pages/navigation/not-found/not-found.component';
 import { AddNewComponent } from './pages/product/add-new/add-new.component';
 import { ProductComponent } from './pages/product/product.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'connect', component: ConnectComponent },
-  //{ path: 'product', component: AddNewComponent },
+  { path: 'profile', component: ProfileComponent },
   {
     path: 'product',
     loadChildren: () => import('./pages/product/product.module')

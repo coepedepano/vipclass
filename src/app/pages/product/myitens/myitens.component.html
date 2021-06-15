@@ -1,75 +1,44 @@
-<header class="py-5 mb-5">
-    <div class="container h-50">
-        <div class="row h-50">
-          
-            <div class="col-lg-12 align-items-center">
-              <h5 class="display-6 mt-5 mb-1">My Itens </h5>
-              
-            </div>
-
-        </div>
-                    
-    </div>
- 
-</header>
+<header class="py-5 mb-4">
+</header>  
+<div class="container">
+    <h1 class="text-muted">Create </h1>
+</div>
 
 <div class="container main-container">
 
 
-    <p>
-        <a class="btn btn-info" [routerLink]="['/product/add-new']">New</a>
-    </p>
 
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-
-                </th>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    quantitie
-                </th>
-                <th>
-                    Active?
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <img src="" style="width: 70px; height: 100px">
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                    <input  class="check-box" disabled="disabled" type="checkbox">
-                </td>
-                <td class="text-right">
-                    <a class="btn btn-warning" [routerLink]="['/product/details',1]">
-                        <span class="fa fa-search"></span>
-                    </a>&nbsp;
-                    <a class="btn btn-info" [routerLink]="['/product/edit',1]">
-                        <span class="fa fa-pencil-alt"></span>
-                    </a>&nbsp;
-                    <a class="btn btn-danger" [routerLink]="['/product/delete',1]">
-                        <span class="fa fa-trash"></span>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container main-container container-fluid">
+        <div class="row"> 
+            <div class="col-sm-6 text-center">
+                <mat-card>
+               <h3 class="text-muted"> Single Item </h3>  
+            
+               <a class="btn btn-warning btn-block text-white" [routerLink]="['/product/add-new']">
+                <mat-icon>
+                    filter_1
+                   </mat-icon>
+                Create Single
+            </a>
+            </mat-card>
+            </div>
+            <div class="col-sm-6 text-center text-muted">
+                <mat-card>
+                <h3  class="text-muted"> Collection </h3>  
+                <a class="btn btn-warning btn-block text-white" [routerLink]="['/product/add-collection']">
+                    <mat-icon>
+                        auto_awesome_motion
+                       </mat-icon>
+                    Create Collection
+                
+                </a>
+            </mat-card>
+            </div>
+       
+        </div>
+    </div>
+            
+    <div class="text-center">
+        <h4 class="text-muted">We do not own your private keys and cannot access your funds without your confirmation</h4>
+    </div>
 </div>

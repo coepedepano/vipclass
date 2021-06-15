@@ -10,7 +10,7 @@ const productRouterConfig: Routes = [
     {
         path: '', component: ProductComponent,
         children: [
-            { path: 'my-itens', component: MyitensComponent },
+            { path: 'create-item', component: MyitensComponent },
            // { path: 'list', component: ListAllComponent },
             {
                 path: 'add-new', component: AddNewComponent,

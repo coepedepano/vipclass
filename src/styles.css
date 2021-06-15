@@ -1,3 +1,4 @@
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -43,7 +44,7 @@ html {
   } */
 @media (min-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 16px; 
     }
 }
 
@@ -97,3 +98,5 @@ file,
 textarea {
     max-width: 400px;
 }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

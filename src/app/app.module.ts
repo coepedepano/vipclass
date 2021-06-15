@@ -10,7 +10,10 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { NavigationModule } from './pages/navigation/navigation.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConnectComponent } from './pages/connect/connect.component';
-//import { AddNewComponent } from './pages/product/add-new/add-new.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -20,6 +23,7 @@ import { ConnectComponent } from './pages/connect/connect.component';
     ButtonComponent,
     UserCardComponent,
     ConnectComponent,
+    ProfileComponent,
     //AddNewComponent
   ],
   imports: [
@@ -29,6 +33,10 @@ import { ConnectComponent } from './pages/connect/connect.component';
     ReactiveFormsModule,
     NavigationModule,
     NgbModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

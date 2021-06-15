@@ -1,0 +1,58 @@
+[
+      {
+         "id":1,
+         "name":"Software"
+      },
+      {
+         "id":2,
+         "name":"Local Business (culinary, yoga, Photography, etc)"
+      },
+      {
+         "id":3,
+         "name":"Coach"
+      },
+      {
+         "id":4,
+         "name":"Educação"
+      },
+      {
+         "id":5,
+         "name":"Hobbies"
+      },
+      {
+         "id":6,
+         "name":"languages"
+      },
+      {
+         "id":7,
+         "name":"Music and Arts"
+      },
+      {
+         "id":8,
+         "name":"Business and Career"
+      },
+      {
+         "id":9,
+         "name":"Health and beauty"
+      },
+      {
+         "id":10,
+         "name":"Technology"
+      },
+      {
+         "id":11,
+         "name":"Games"
+      },
+      {
+         "id":12,
+         "name":"Illustration & Animation"
+      }
+	  ,
+      {
+         "id":12,
+         "name":"Writing & Journalism"
+      }
+   ]
+
+
+

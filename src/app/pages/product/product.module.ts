@@ -14,12 +14,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatIconModule } from '@angular/material/icon';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [
     ProductComponent,
@@ -39,16 +40,21 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatGridListModule,
     MatSidenavModule,
     MatDividerModule,
-    //NgxMatFileInputModule
     MaterialFileInputModule,
     MatIconModule,
     ImageCropperModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatStepperModule,
+    SharedModule
   ]
   ,
+
   providers: [
     ProductService,
-
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
   ]
 })
 export class ProductModule { }

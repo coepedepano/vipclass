@@ -1,0 +1,21 @@
+
+<input type="file" class="file-input" 
+[accept]="requiredFileType" 
+(change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+{{fileName || mensage}}
+
+<button mat-mini-fab color="primary" class="upload-btn"
+       (click)="fileUpload.click()">
+ <mat-icon>{{iconFile}}</mat-icon>
+</button>
+</div>
+
+<div *ngIf="preview"  class="row margin">  
+    <mat-card class="col col-md-2">               
+        <img *ngIf="previewCover"   [src]="croppedImage" class="img-fluid" id="imgPreview" [style.border]="croppedImage ? '1px solid' : 'none'" />
+        <video  *ngIf="previewVideo"    [src]="urlVideo"  class="img-fluid" controls></video>
+    </mat-card>
+</div>

@@ -1,16 +1,226 @@
   <header class="py-5 mb-4">
 </header>  
 <div class="container">
+
     <h2 class="text-muted">Upload single Product </h2>
+
+
+ <div class="row">
+
+
+  <mat-horizontal-stepper>
+
+  <mat-step [stepControl]="courseInformationForm" label="Course Information">
+
+    <form [formGroup]="courseInformationForm">
+
+
+      <mat-form-field class="full-width">
+      
+        <mat-select [formControl]="categorieId" name="categorieId" placeholder="Categorie">
+        
+          <mat-option *ngFor="let cat of categories" [value]="cat.id">
+            {{cat.description}}
+          </mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <div class="row g-2"> 
+     <mat-form-field class="medium-width">
+      
+        <input matInput placeholder="Name" id="name">
+      </mat-form-field>
+
+   
+      <mat-form-field class="medium-width">
+      
+        <input matInput placeholder="Description" id="description">
+      </mat-form-field>
+    </div>
+
+    <app-file-upload iconFile="attach_file"type="image" (change)="getContentPreview($event)"  mensage="Choose a cover" requiredFileType="image/png,image/jpeg,image/gif,image/webp"></app-file-upload>
+
+    <div class="row g-2">
+      <mat-form-field class="medium-width">
+        <mat-label>Coin</mat-label>
+        <mat-select [formControl]="coinId" name="coinId">     
+          <mat-option *ngFor="let coin of coins" [value]="coin.id">
+            {{coin.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field class="medium-width">
+  
+      <input matInput placeholder="Price" id="price">
+    </mat-form-field>
+  </div>
+  <div class="mb-2">
+    <mat-form-field class="medium-width">
+    
+      <input matInput placeholder="Producer Royalties" id="producerRoyalties">
+    </mat-form-field>
+  </div>
+    <div class="row g-2"> 
+      <mat-form-field class="medium-width">
+       
+         <input matInput placeholder="Co Producer" id="codProducer">
+       </mat-form-field>
+ 
+    
+       <mat-form-field class="medium-width">
+       
+         <input matInput placeholder="Co-Producer Royalties" id="codProducerRoyalties">
+       </mat-form-field>
+     </div>
+
+
+        <button class="btn btn-warning text-white">Next</button>
+      
+    </form>
+
+  </mat-step>
+  <mat-step [stepControl]="uploadCourseForm" label="Upload Course">
+
+    <form [formGroup]="uploadCourseForm">
+
+      <div class="row mb-3">
+ 
+        <mat-form-field class="full-width">
+        
+          <input matInput placeholder="Module Name" formControlName="moduleName">
+        </mat-form-field>
+    
+        <mat-form-field class="medium-width">
+        
+          <input matInput placeholder="Name Content" formControlName="description">
+        </mat-form-field>
+        
+        <mat-form-field class="medium-width">
+        
+          <input matInput placeholder="Duration" formControlName="duration">
+        </mat-form-field>
+
+      </div>
+      
+      
+      <div class="row">
+        <app-file-upload iconFile="play_circle" type="video" (change)="getContentVideo($event)" mensage="Choose a file" requiredFileType="video/mp4,video"></app-file-upload>
+      </div>
+<br>
+      <div class="row col-1">
+        <button class="btn btn-success text-white" (click)="onAddModule();">
+          Add 
+        </button>
+      </div>
+   <br>
+      <div class="row">
+
+        <table class="table table-hover">
+            <thead class="thead-light">
+              <tr>
+              
+              </tr>
+                <tr>
+                 
+                   
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                      Duration
+                  </th>
+                  <th>
+                      Content
+                  </th>
+                 <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let md of modules">
+         
+                    <td>
+                        {{ md.description }}
+                    </td>
+                    <td>
+                      {{ md.duration }}
+                  </td>
+                  <td>
+                   
+                    <video [src]="md.preview" style="width:100px; height: 50px;"  class="img-fluid" controls></video>
+                  </td>
+            
+                    <td class="text-right">
+                        <a class="btn btn-warning" [routerLink]="['/product/details',md.id]">
+                            <span class="fa fa-search"></span>
+                        </a>&nbsp;
+                        <a class="btn btn-info" [routerLink]="['/product/edit',md.id]">
+                            <span class="fa fa-pencil-alt"></span>
+                        </a>&nbsp;
+                        <a class="btn btn-danger" [routerLink]="['/product/delete',md.id]">
+                            <span class="fa fa-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+   
+
+   
+        <button class="btn btn-primary text-white btn mr-1">Back</button>
+        <button class="btn btn-warning text-white">Next</button>
+    
+    </form>
+
+  </mat-step>
+
+  <mat-step [stepControl]="resumoForm" label="Resume and finish">
+
+
+    <form [formGroup]="resumoForm">
+
+   
+
+
+      <div>
+        <button class="btn btn-primary text-white">Back</button>
+      </div>
+
+      <div class="container main-container container-fluid">
+        <div class="row"> 
+            <div class="col-sm-12 text-center">
+             
+          
+            
+               <button class="btn btn-success btn-block text-white">
+               
+                Create 
+            </button>
+       
+            </div>
+
+       
+        </div>
+    </div>
+    </form>
+
+
+  </mat-step>
+ 
+</mat-horizontal-stepper>
+
+ </div>
 </div>
 
-
-<div class="container main-container container-fluid">
+<!-- <div class="container main-container container-fluid">
     <div class="row"> 
         <div class="col-sm-8">
          
 
-            <form [formGroup]="productForm" class="form">
+            <form [formGroup]="productForm" class="form"> -->
     
                 <!-- <mat-form-field appearance="outline">
                    <ngx-mat-file-input [formControl]="uploadFile">
@@ -32,7 +242,7 @@
                        <mat-icon>clear</mat-icon>
                    </button>
                  </mat-form-field>  -->
-               
+<!--                
                  <div *ngIf="!previewVideo" class="form-group">
     
                     <div class="custom-file">
@@ -55,11 +265,11 @@
                     
                    </mat-card>
 
-                  </div>
+                  </div> -->
             
              
             
-                        <div *ngIf="!previewCover" class="form-group">
+                        <!-- <div *ngIf="!previewCover" class="form-group">
     
                         <div class="custom-file">
                             <input type="file" accept="image/png,image/jpeg,image/gif,image/webp,video/mp4,video/webm,audio/mp3,audio/webm,audio/mpeg" class="custom-file-input" id="cover" formControlName="imagem" (change)="fileChangeEvent($event)">
@@ -67,7 +277,7 @@
                              <label class="custom-file-label" for="cover">Choose cover</label>
                             <span *ngIf='imageName'><br>{{ imageName }}<br></span>
                            
-                        </div>
+                        </div> -->
                          <!-- <div *ngIf='imageName' class="row">
                             <div class="col col-md-6">
                                 <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="false" [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="4 / 3" [resizeToWidth]="256" [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false"
@@ -76,19 +286,19 @@
                             </div>
                     
                         </div> -->
-                       </div>
+                       <!-- </div> -->
 
-                       <div *ngIf="previewCover" class="form-group">
+                       <!-- <div *ngIf="previewCover" class="form-group">
                         <mat-card style="width: 350px; height: 275;">          
                           <mat-icon (click)="clearPreviewCover();" style="padding-left: 350px; cursor:pointer">clear</mat-icon>
                           <div class="col col-md-6">
                               <img [src]="croppedImage" class="img-fluid" id="imgPreview" [style.border]="croppedImage ? '1px solid' : 'none'" />
                           </div>
                        </mat-card>
-                      </div>
+                      </div> -->
 
 
-                       <div class="form-group">
+                       <!-- <div class="form-group">
                           <mat-button-toggle-group   name="fontStyle" aria-label="Font Style" (change)="onChange($event.value);">
                             <mat-button-toggle checked="true"  value="fixed">
                                 <mat-icon >request_page</mat-icon>
@@ -98,7 +308,7 @@
                             <mat-button-toggle value="time">
 
                                 <mat-icon>query_builder</mat-icon>
-                                Timed auction
+                                Limited offer
                             </mat-button-toggle>
                      
                           </mat-button-toggle-group>
@@ -134,7 +344,7 @@
                       </tr>
                       </table>
 
-                   <mat-form-field class="full-width">
+                    <mat-form-field class="full-width">
                        <mat-label>Categorie</mat-label>
                        <mat-select [formControl]="categorieId" name="categorieId">
                          <mat-option>None</mat-option>
@@ -154,7 +364,7 @@
                    <mat-form-field class="full-width">
                        <mat-label>Description</mat-label>
                        <input matInput placeholder="" id="description">
-                     </mat-form-field>
+                     </mat-form-field> 
       
 
                <table class="full-width" cellspacing="0">
@@ -208,5 +418,5 @@
                   <div class="text-left">
                     <button type="button" class="btn btn-warning btn-lg text-white">Create Item</button>
                   </div>
-    </div>
+    </div> -->
 

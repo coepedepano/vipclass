@@ -12,8 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConnectComponent } from './pages/connect/connect.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -24,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     UserCardComponent,
     ConnectComponent,
     ProfileComponent,
-    //AddNewComponent
+
   ],
   imports: [
     BrowserModule,
@@ -34,11 +32,11 @@ import { MatButtonModule } from '@angular/material/button';
     NavigationModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule
+
     
   ],
-  providers: [],
+  providers: [
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

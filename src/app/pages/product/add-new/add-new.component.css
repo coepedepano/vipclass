@@ -1,9 +1,9 @@
-.form {
+/* .form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
-  
+   */
   .full-width {
     width: 100%;
   }
@@ -24,4 +24,18 @@
     margin: 10px;
     border: 1px solid #555;
   }
-
+  .mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  .example-stepper {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  

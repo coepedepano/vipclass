@@ -55,14 +55,14 @@ export class ProductService extends BaseService {
 
     getCategories(): Observable<ICategorie[]> {
         return this.http
-            .get<ICategorie[]>(this.UrlServiceV1 + "Comum/ListAllCategorie")
+            .get<ICategorie[]>(this.UrlServiceV1 + "Categories/GetAll")
             .pipe(catchError(super.serviceError));
 
     }
 //this.UrlServiceV1 + "Comum/ListAllCategorie"
     getCoins(): Observable<ICoin[]> {
         return this.http
-            .get<ICoin[]>(this.UrlServiceV1 + "Comum/ListAllCoin") 
+            .get<ICoin[]>(this.UrlServiceV1 + "Coins/GetAll") 
             .pipe(catchError(super.serviceError));      
     }
  //("https://localhost:44374/api/Comum/ListAllCoin")

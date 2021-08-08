@@ -11,6 +11,13 @@ import { FileValidator } from 'ngx-material-file-input';
 import { ImageCroppedEvent, ImageTransform, Dimensions } from 'ngx-image-cropper';
 import { IStartDate } from 'src/app/model/startingDates.model';
 import { IExpirationDate } from 'src/app/model/expirationDates.model';
+import { Observable } from 'rxjs';
+import { StepperOrientation } from '@angular/cdk/stepper';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {map} from 'rxjs/operators';
+import { CourseModule } from './module.model';
+import { IContent, ICourseModule } from '../course-module.model';
+
 
 
 
@@ -29,7 +36,7 @@ export class AddNewComponent  implements OnInit {
    startDate = new FormControl('');
    expirationDate = new FormControl('');
   
-
+  modules: IContent[] =[];
   categories: ICategorie[] | undefined;
   coins : ICoin[] | undefined;
   startDates: IStartDate[] | undefined;
@@ -54,14 +61,23 @@ export class AddNewComponent  implements OnInit {
   videoImg: string | undefined;
   urlVideo : any;
   clearImage : boolean = false;
+  isLinear = false;
+  courseInformationForm!: FormGroup;
+  uploadCourseForm!: FormGroup;
+  resumoForm!: FormGroup;
+  // stepperOrientation!: Observable<StepperOrientation>;
 
   readonly maxSize = 104857600;
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private productService: ProductService,
+    //private breakpointObserver: BreakpointObserver
     //private toastr: ToastrService
-    ) { }
+    ) {
+      // this.stepperOrientation = breakpointObserver.observe('(min-width: 800px)')
+      // .pipe(map(({matches}) => matches ? 'horizontal' : 'vertical'));
+     }
 
   ngOnInit(): void {
       this.createForm();
@@ -69,6 +85,20 @@ export class AddNewComponent  implements OnInit {
       this.listCoins();
       this.listStartDates();
       this.listExpirationDates();
+
+      this.courseInformationForm = this.fb.group({
+        uploadFile: ['', Validators.required]
+      });
+      this.uploadCourseForm = this.fb.group({
+        moduleName: ['', Validators.required],
+        description: ['', Validators.required],
+        duration: ['', Validators.required],
+
+      });
+      this.resumoForm = this.fb.group({
+        thirdCtrl: ['', Validators.required]
+      });
+  
   }
 
   createForm() {
@@ -168,6 +198,7 @@ listExpirationDates(){
     this.previewCover = true;
     
   }
+  
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage =    !this.clearImage ?  event.base64 : '';
     this.previewCover =  true;
@@ -197,4 +228,23 @@ listExpirationDates(){
     this.previewCover = false;
     this.croppedImage = "";
    }
+
+   onAddModule(){
+
+    let content = new IContent();
+    content.description = this.uploadCourseForm.get("description")?.value;
+    content.duration = this.uploadCourseForm.get("duration")?.value;
+    content.preview =   this.urlVideo;
+    this.modules?.push(content);
+    console.log(this.modules);
+
+   }
+   getContentPreview(event: any){
+     this.imageURL = event;
+     //console.log(this.imageURL);
+   }
+   getContentVideo(event: any){
+    this.urlVideo = event;
+    //console.log(this.urlVideo);
+  }
 }

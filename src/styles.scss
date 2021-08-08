@@ -1,9 +1,31 @@
+@import "styles-variables.scss";
+@import "styles-reset.scss";
+
+
+@import '~bootstrap/dist/css/bootstrap-reboot.css';
+@import '~bootstrap/dist/css/bootstrap-grid.css';
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+header {
+  nav {
+    width: 100%;
+  }
+  
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    nav {
+      width: 100%;
+    }
+  }
+}
+
 
 a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
- 
+   text-decoration: none;
 }
 
 

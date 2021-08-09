@@ -17,6 +17,8 @@ import {BreakpointObserver} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import { CourseModule } from './module.model';
 import { IContent, ICourseModule } from '../course-module.model';
+import { MatStepper } from '@angular/material/stepper';
+import { ICourse } from '../course.model';
 
 
 
@@ -27,15 +29,8 @@ import { IContent, ICourseModule } from '../course-module.model';
   styleUrls: ['./add-new.component.css']
 })
 export class AddNewComponent  implements OnInit {
-  categorieId = new FormControl('', Validators.required);
-   coinId = new FormControl('', Validators.required);
-   name = new FormControl('', Validators.required);
-   description = new FormControl('', Validators.required);
-   quantitie = new FormControl('', Validators.required);
-   price = new FormControl('', Validators.required);
-   startDate = new FormControl('');
-   expirationDate = new FormControl('');
-  
+
+  course: ICourse= new ICourse();
   modules: IContent[] =[];
   categories: ICategorie[] | undefined;
   coins : ICoin[] | undefined;
@@ -79,16 +74,36 @@ export class AddNewComponent  implements OnInit {
       // .pipe(map(({matches}) => matches ? 'horizontal' : 'vertical'));
      }
 
+     
+goBack(stepper: MatStepper){
+  stepper.previous();
+}
+
+goForward(stepper: MatStepper){
+  this.mapCourse();
+  stepper.next();
+}
+
+
   ngOnInit(): void {
-      this.createForm();
+     
       this.listCategories();
       this.listCoins();
       this.listStartDates();
       this.listExpirationDates();
 
       this.courseInformationForm = this.fb.group({
-        uploadFile: ['', Validators.required]
+        categorieId: ['', Validators.required],
+        coinId: ['', Validators.required],
+        name: ['', Validators.required],
+        description: ['', Validators.required],
+        quantitie: ['', Validators.required],
+        price: ['', Validators.required],
+        producerRoyalties: ['', Validators.required],
+        codProducer: ['', Validators.required],
+        codProducerRoyalties: ['', Validators.required],
       });
+
       this.uploadCourseForm = this.fb.group({
         moduleName: ['', Validators.required],
         description: ['', Validators.required],
@@ -96,33 +111,15 @@ export class AddNewComponent  implements OnInit {
 
       });
       this.resumoForm = this.fb.group({
-        thirdCtrl: ['', Validators.required]
+      
+
       });
   
   }
-
-  createForm() {
-    this.productForm = this.fb.group({
-
-      video: [
-        undefined,
-        [Validators.required]
-      ],
-      imagem: [
-        undefined,
-        [Validators.required]
-      ],
-      startDate : [
-        undefined,
-        [Validators.required]
-      ],
-      expirationDate:[
-        undefined,
-        [Validators.required]
-      ],
-    
-    });
-}
+  mapCourse(){
+    this.course = Object.assign({}, this.course, this.courseInformationForm.value);
+  }
+  
 
 listCategories(){
   this.productService.getCategories()
@@ -236,15 +233,14 @@ listExpirationDates(){
     content.duration = this.uploadCourseForm.get("duration")?.value;
     content.preview =   this.urlVideo;
     this.modules?.push(content);
-    console.log(this.modules);
+
 
    }
    getContentPreview(event: any){
      this.imageURL = event;
-     //console.log(this.imageURL);
    }
    getContentVideo(event: any){
     this.urlVideo = event;
-    //console.log(this.urlVideo);
+
   }
 }
